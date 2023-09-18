@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: spring-deployment
+  labels:
+    app: spring
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: myapp
-  replicas: 3
+      app: spring
   template:
     metadata:
       labels:
-        app: myapp
+        app: spring
     spec:
       containers:
-      - name: myapp
+      - name: spring
         image: sovanseyha/devops-spring-test:latest
         ports:
         - containerPort: 8080
